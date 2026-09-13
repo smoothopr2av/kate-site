@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Professional portfolio of YEKATERINA, model based in Ust-Kamenogorsk, Kazakhstan. Available for collaborations, editorial, lingerie and art-nude projects." />
+  <title>YEKATERINA — Model Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============== AGE GATE ============== -->
+<div id="ageGate" class="age-gate">
+  <div class="age-gate__inner">
+    <div class="age-gate__eyebrow" data-i18n="age.eyebrow">Model Portfolio</div>
+    <h1 class="age-gate__title">YEKATERINA</h1>
+    <p class="age-gate__lead" data-i18n="age.lead">
+      This portfolio contains artistic content featuring lingerie, art-nude and editorial imagery.
+    </p>
+    <p class="age-gate__sub" data-i18n="age.sub">
+      By entering, you confirm that you are at least 18 years of age and that artistic nudity does not violate the laws of your jurisdiction.
+    </p>
+    <button id="ageConfirm" class="btn btn-primary btn-lg" data-i18n="age.confirm">I am 18 or older — enter</button>
+    <a href="https://www.google.com" class="age-gate__back" data-i18n="age.back">Take me back</a>
+  </div>
+</div>
+
+<!-- ============== HEADER ============== -->
+<header id="siteHeader" class="site-header">
+  <div class="container site-header__row">
+    <button data-nav="hero" class="site-header__brand">YEKATERINA</button>
+    <nav class="site-header__nav" aria-label="Primary">
+      <button data-nav="about" class="nav-link" data-i18n="nav.about">About</button>
+      <button data-nav="portfolio" class="nav-link" data-i18n="nav.portfolio">Portfolio</button>
+      <button data-nav="tiers" class="nav-link" data-i18n="nav.tiers">Membership</button>
+      <button data-nav="booking" class="nav-link" data-i18n="nav.booking">Collaborate</button>
+      <button data-nav="links" class="nav-link" data-i18n="nav.links">Connect</button>
+    </nav>
+    <div class="site-header__actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button class="lang-btn is-active" data-lang="en" type="button">EN</button>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <button class="lang-btn" data-lang="ru" type="button">RU</button>
+      </div>
+      <button data-nav="booking" class="btn btn-primary btn-sm" data-i18n="nav.book">Book</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============== HERO ============== -->
+  <section id="hero" class="hero">
+    <div class="hero__bg">
+      <img src="assets/hero-cover.jpg" alt="" aria-hidden="true" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="container hero__content">
+      <div class="hero__eyebrow"><span class="line"></span><span data-i18n="hero.eyebrow">Model Portfolio</span></div>
+      <h1 class="hero__title">YEKATERINA</h1>
+      <p class="hero__lead">
+        <span data-i18n="hero.lead1">Model · editorials · lingerie · art-nude · based in</span>
+        <strong data-i18n="hero.lead2">Ust-Kamenogorsk, Kazakhstan</strong>.
+        <span data-i18n="hero.lead3">Available for collaborations with brands, photographers and creators.</span>
+      </p>
+      <div class="hero__cta">
+        <button data-nav="portfolio" class="btn btn-primary btn-lg" data-i18n="hero.viewPortfolio">View Portfolio</button>
+        <button data-nav="booking" class="btn btn-outline-light btn-lg" data-i18n="hero.startCollab">Start a Collaboration</button>
+      </div>
+      <div class="hero__stats">
+        <div><div class="stat-num">20K</div><div class="stat-label" data-i18n="stats.audience">Instagram audience</div></div>
+        <div><div class="stat-num">64</div><div class="stat-label" data-i18n="stats.publications">Publications</div></div>
+        <div><div class="stat-num">5</div><div class="stat-label" data-i18n="stats.tiers">Active membership tiers</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label" data-i18n="stats.platforms">Platforms she's on</div></div>
+      </div>
+    </div>
+    <button data-nav="about" class="hero__scroll" aria-label="Scroll down">↓</button>
+  </section>
+
+  <!-- ============== ABOUT ============== -->
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="about-grid__media">
+        <div class="about-portrait">
+          <img src="assets/avatar.jpg" alt="Portrait of YEKATERINA" />
+        </div>
+        <div class="about-details">
+          <div class="detail-card">
+            <div class="detail-card__row"><span class="icon">📍</span><span class="label" data-i18n="about.basedIn">Based in</span></div>
+            <div class="detail-card__value" data-i18n="about.basedInValue">Ust-Kamenogorsk, KZ</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card__row"><span class="icon">📸</span><span class="label" data-i18n="about.since">Since</span></div>
+            <div class="detail-card__value">2026</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card__row"><span class="icon">🌍</span><span class="label" data-i18n="about.languages">Languages</span></div>
+            <div class="detail-card__value">RU · EN</div>
+          </div>
+          <div class="detail-card">
+            <div class="detail-card__row"><span class="icon">✉</span><span class="label" data-i18n="about.contact">Contact</span></div>
+            <div class="detail-card__value" data-i18n="about.contactValue">via form</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-grid__text">
+        <div class="section-eyebrow"><span class="line"></span><span data-i18n="about.eyebrow">About</span></div>
+        <h2 class="section-title" data-i18n="about.title">A model who treats every frame like a conversation.</h2>
+        <div class="body-text">
+          <p data-i18n="about.p1">YEKATERINA is a visual model working in editorial, lingerie and art-nude aesthetics. Originally from Ust-Kamenogorsk, she approaches each set as a study of mood, light and the female form — soft, sensual, and never theatrical.</p>
+          <p data-i18n="about.p2">Her work moves across the spectrum of intimacy: from delicate lingerie and natural portraits to fully nude, emotional studies. Every frame is built with attention to atmosphere — slow light, quiet rooms, the kind of stillness that lets the viewer lean in.</p>
+          <p data-i18n="about.p3">She collaborates with photographers, brands and creators who care about craft over volume. Available for editorial commissions, private projects and curated content work.</p>
+        </div>
+        <div class="tags">
+          <span class="tag" data-i18n="tags.editorial">Editorial</span>
+          <span class="tag" data-i18n="tags.lingerie">Lingerie</span>
+          <span class="tag" data-i18n="tags.artNude">Art Nude</span>
+          <span class="tag" data-i18n="tags.portrait">Portrait</span>
+          <span class="tag" data-i18n="tags.boudoir">Boudoir</span>
+          <span class="tag" data-i18n="tags.brandCollab">Brand Collaborations</span>
+          <span class="tag" data-i18n="tags.print">Print</span>
+          <span class="tag" data-i18n="tags.private">Private Commissions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============== PORTFOLIO ============== -->
+  <section id="portfolio" class="section section--alt">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="section-eyebrow"><span class="line"></span><span data-i18n="portfolio.eyebrow">Selected Work</span></div>
+          <h2 class="section-title" data-i18n="portfolio.title">Portfolio</h2>
+        </div>
+        <p class="section-head__sub" data-i18n="portfolio.sub">A curated selection of public frames. Full editorial sets and uncensored work are available to members.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <figure class="portfolio-item portfolio-item--large">
+          <img src="assets/portfolio-1.jpg" alt="Editorial frame" />
+          <figcaption>
+            <span class="badge" data-i18n="portfolio.cat1">Editorial</span>
+            <div class="cap-title" data-i18n="portfolio.title1">Editorial</div>
+            <div class="cap-sub" data-i18n="portfolio.sub1">Soft natural light study</div>
+          </figcaption>
+        </figure>
+        <figure class="portfolio-item">
+          <img src="assets/avatar.jpg" alt="Portrait" />
+          <figcaption>
+            <span class="badge" data-i18n="portfolio.cat2">Portrait</span>
+            <div class="cap-title" data-i18n="portfolio.title2">Portrait</div>
+            <div class="cap-sub" data-i18n="portfolio.sub2">Studio session, Ust-Kamenogorsk</div>
+          </figcaption>
+        </figure>
+        <figure class="portfolio-item">
+          <img src="assets/hero-cover.jpg" alt="Mood" />
+          <figcaption>
+            <span class="badge" data-i18n="portfolio.cat3">Mood</span>
+            <div class="cap-title" data-i18n="portfolio.title3">Atmosphere</div>
+            <div class="cap-sub" data-i18n="portfolio.sub3">Mood & aesthetic frame</div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="section-foot">
+        <a href="https://www.patreon.com/kkaterina_kos" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+          <span data-i18n="portfolio.archive">See full archive on Patreon</span> <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============== TIERS ============== -->
+  <section id="tiers" class="section">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-eyebrow"><span class="line"></span><span data-i18n="tiers.eyebrow">Membership</span></div>
+        <h2 class="section-title" data-i18n="tiers.title">Support the craft.</h2>
+        <p class="section-lead" data-i18n="tiers.lead">
+          Members get access to exclusive sets, behind-the-scenes moments and uncensored work not available anywhere else. Choose your level of access — every tier directly supports the creation of new work.
+        </p>
+      </div>
+
+      <div class="tiers-grid">
+
+        <article class="tier-card">
+          <div class="tier-emoji">🌙</div>
+          <h3 class="tier-name" data-i18n="tier1.name">A Small Secret</h3>
+          <div class="tier-price"><span class="num">$3</span> <span class="cadence" data-i18n="tier.cadence">/ month</span></div>
+          <p class="tier-blurb" data-i18n="tier1.blurb">A gentle entry for those who are simply curious. Peeks behind the curtain without a big commitment.</p>
+          <ul class="tier-perks">
+            <li data-i18n="tier1.perk1">✓ Behind-the-scenes access</li>
+            <li data-i18n="tier1.perk2">✓ 1–3 posts per week</li>
+            <li data-i18n="tier1.perk3">✓ Direct chat access</li>
+          </ul>
+          <a href="https://www.patreon.com/checkout/kkaterina_kos?rid=28855544" target="_blank" rel="noopener" class="btn btn-outline btn-block">
+            <span data-i18n="tier.join">Join</span> <span data-i18n="tier1.name">A Small Secret</span> <span class="arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="tier-card">
+          <div class="tier-emoji">💛</div>
+          <h3 class="tier-name" data-i18n="tier2.name">Just Support</h3>
+          <div class="tier-price"><span class="num">$7</span> <span class="cadence" data-i18n="tier.cadence">/ month</span></div>
+          <p class="tier-blurb" data-i18n="tier2.blurb">For those who simply want to support my creative work — no expectations, no extra perks. Just appreciation.</p>
+          <ul class="tier-perks">
+            <li data-i18n="tier2.perk1">✓ Support the craft</li>
+            <li data-i18n="tier2.perk2">✓ Public feed access</li>
+            <li data-i18n="tier2.perk3">✓ My gratitude</li>
+          </ul>
+          <a href="https://www.patreon.com/checkout/kkaterina_kos?rid=28804471" target="_blank" rel="noopener" class="btn btn-outline btn-block">
+            <span data-i18n="tier.join">Join</span> <span data-i18n="tier2.name">Just Support</span> <span class="arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="tier-card tier-card--featured">
+          <div class="tier-flag" data-i18n="tiers.featured">Most popular</div>
+          <div class="tier-emoji">☀️</div>
+          <h3 class="tier-name" data-i18n="tier3.name">Soft Entry</h3>
+          <div class="tier-price"><span class="num">$15</span> <span class="cadence" data-i18n="tier.cadence">/ month</span></div>
+          <p class="tier-blurb" data-i18n="tier3.blurb">A gentle introduction to my world — soft topless shots, uncensored but light in mood. 7–10 photos per week.</p>
+          <ul class="tier-perks">
+            <li data-i18n="tier3.perk1">✓ 7–10 photos / week</li>
+            <li data-i18n="tier3.perk2">✓ Soft uncensored content</li>
+            <li data-i18n="tier3.perk3">✓ Early access to new sets</li>
+          </ul>
+          <a href="https://www.patreon.com/checkout/kkaterina_kos?rid=28378208" target="_blank" rel="noopener" class="btn btn-primary btn-block">
+            <span data-i18n="tier.join">Join</span> <span data-i18n="tier3.name">Soft Entry</span> <span class="arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="tier-card">
+          <div class="tier-emoji">✨️</div>
+          <h3 class="tier-name" data-i18n="tier4.name">Inner Circle</h3>
+          <div class="tier-price"><span class="num">$30</span> <span class="cadence" data-i18n="tier.cadence">/ month</span></div>
+          <p class="tier-blurb" data-i18n="tier4.blurb">The most active tier — full uncensored access, personal close-up content, behind-the-scenes of every set.</p>
+          <ul class="tier-perks">
+            <li data-i18n="tier4.perk1">✓ 90+ posts archive</li>
+            <li data-i18n="tier4.perk2">✓ Full uncensored sets</li>
+            <li data-i18n="tier4.perk3">✓ Personal close-up content</li>
+          </ul>
+          <a href="https://www.patreon.com/checkout/kkaterina_kos?rid=28378236" target="_blank" rel="noopener" class="btn btn-outline btn-block">
+            <span data-i18n="tier.join">Join</span> <span data-i18n="tier4.name">Inner Circle</span> <span class="arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="tier-card">
+          <div class="tier-emoji">✨</div>
+          <h3 class="tier-name" data-i18n="tier5.name">The Kate Kit</h3>
+          <div class="tier-price"><span class="num">$330</span> <span class="cadence" data-i18n="tier.cadence">/ month</span></div>
+          <p class="tier-blurb" data-i18n="tier5.blurb">Limited-edition physical merch kit, delivered by mail. A collectible artifact for the inner circle.</p>
+          <ul class="tier-perks">
+            <li data-i18n="tier5.perk1">✓ Limited physical kit</li>
+            <li data-i18n="tier5.perk2">✓ Shipped internationally</li>
+            <li data-i18n="tier5.perk3">✓ Member-only drops</li>
+          </ul>
+          <a href="https://www.patreon.com/checkout/kkaterina_kos?rid=29464026" target="_blank" rel="noopener" class="btn btn-outline btn-block">
+            <span data-i18n="tier.join">Join</span> <span data-i18n="tier5.name">The Kate Kit</span> <span class="arrow">↗</span>
+          </a>
+        </article>
+
+      </div>
+
+      <div class="tier-cta">
+        <div class="tier-cta__emoji">✨</div>
+        <div class="tier-cta__body">
+          <h3 data-i18n="tier5.ctaTitle">The Kate Kit — Limited Edition</h3>
+          <p data-i18n="tier5.ctaBody">A physical, limited-edition merch kit, hand-curated and shipped internationally. Only available to members of the highest tier. Includes signed prints and exclusive artifacts.</p>
+        </div>
+        <a href="https://www.patreon.com/checkout/kkaterina_kos?rid=29464026" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="tier5.enquire">Enquire</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============== BOOKING ============== -->
+  <section id="booking" class="section section--alt">
+    <div class="container booking-grid">
+
+      <div class="booking-grid__intro">
+        <div class="section-eyebrow"><span class="line"></span><span data-i18n="booking.eyebrow">Collaborate</span></div>
+        <h2 class="section-title" data-i18n="booking.title">Start a project together.</h2>
+        <p class="section-lead" data-i18n-html="booking.lead">
+          Tell me about your concept, dates and budget. I respond to all serious inquiries within 48 hours. Fields marked with <span class="req">*</span> are required.
+        </p>
+
+        <ul class="booking-meta">
+          <li>
+            <span class="icon">📸</span>
+            <div>
+              <div class="meta-title" data-i18n="booking.meta1Title">Editorial · Lingerie · Art Nude</div>
+              <div class="meta-sub" data-i18n="booking.meta1Sub">All serious concepts considered</div>
+            </div>
+          </li>
+          <li>
+            <span class="icon">📍</span>
+            <div>
+              <div class="meta-title" data-i18n="booking.meta2Title">Ust-Kamenogorsk, Kazakhstan</div>
+              <div class="meta-sub" data-i18n="booking.meta2Sub">Available for travel with expenses covered</div>
+            </div>
+          </li>
+          <li>
+            <span class="icon">$</span>
+            <div>
+              <div class="meta-title" data-i18n="booking.meta3Title">Rates on request</div>
+              <div class="meta-sub" data-i18n="booking.meta3Sub">Hourly, half-day, full-day or per-project</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="booking-grid__form">
+        <form id="bookingForm" class="booking-form" novalidate>
+          <div class="form-row form-row--two">
+            <div class="form-field">
+              <label for="bf-name" data-i18n="form.name">Your name</label> <span class="req">*</span>
+              <input id="bf-name" name="name" type="text" placeholder="Jane Doe / Studio name" required data-i18n-placeholder="form.namePh" />
+              <div class="form-error" data-error-for="name"></div>
+            </div>
+            <div class="form-field">
+              <label for="bf-email" data-i18n="form.email">Email</label> <span class="req">*</span>
+              <input id="bf-email" name="email" type="email" placeholder="you@studio.com" required data-i18n-placeholder="form.emailPh" />
+              <div class="form-error" data-error-for="email"></div>
+            </div>
+          </div>
+
+          <div class="form-row form-row--two">
+            <div class="form-field">
+              <label for="bf-company" data-i18n="form.company">Company / Brand</label>
+              <input id="bf-company" name="company" type="text" placeholder="Optional" data-i18n-placeholder="form.optional" />
+            </div>
+            <div class="form-field">
+              <label for="bf-projectType" data-i18n="form.projectType">Project type</label> <span class="req">*</span>
+              <select id="bf-projectType" name="projectType" required>
+                <option value="" disabled selected data-i18n="form.selectType">Select a type</option>
+                <option value="editorial" data-i18n="form.typeEditorial">Editorial</option>
+                <option value="lingerie" data-i18n="form.typeLingerie">Lingerie</option>
+                <option value="art-nude" data-i18n="form.typeArtNude">Art Nude</option>
+                <option value="brand-collab" data-i18n="form.typeBrandCollab">Brand Collaboration</option>
+                <option value="private-commission" data-i18n="form.typePrivate">Private Commission</option>
+                <option value="other" data-i18n="form.typeOther">Other</option>
+              </select>
+              <div class="form-error" data-error-for="projectType"></div>
+            </div>
+          </div>
+
+          <div class="form-row form-row--two">
+            <div class="form-field">
+              <label for="bf-budget" data-i18n="form.budget">Budget range</label>
+              <select id="bf-budget" name="budget">
+                <option value="" disabled selected data-i18n="form.optional">Optional</option>
+                <option value="under-500" data-i18n="form.budget1">Under $500</option>
+                <option value="500-1500">$500 – $1,500</option>
+                <option value="1500-5000">$1,500 – $5,000</option>
+                <option value="5000-plus">$5,000+</option>
+                <option value="discuss" data-i18n="form.budgetDiscuss">Prefer to discuss</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="bf-shootDate" data-i18n="form.shootDate">Estimated shoot date</label>
+              <input id="bf-shootDate" name="shootDate" type="text" placeholder="e.g. Nov 2026" data-i18n-placeholder="form.shootDatePh" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="bf-location" data-i18n="form.location">Shoot location</label>
+              <input id="bf-location" name="location" type="text" placeholder="Ust-Kamenogorsk / your studio / travel destination" data-i18n-placeholder="form.locationPh" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="bf-description" data-i18n="form.description">Tell me about the project</label> <span class="req">*</span>
+              <textarea id="bf-description" name="description" rows="6" placeholder="Concept, mood, references, deliverables, timeline — anything that helps me understand what you're building." required data-i18n-placeholder="form.descriptionPh"></textarea>
+              <div class="form-error" data-error-for="description"></div>
+            </div>
+          </div>
+
+          <div class="form-row form-foot">
+            <p class="form-foot__note" data-i18n="form.note">Your inquiry is private and goes directly to Kate.</p>
+            <button type="submit" class="btn btn-primary btn-lg">
+              <span class="btn-label" data-i18n="form.submit">Send inquiry</span>
+              <span class="btn-spinner" hidden>↻</span>
+            </button>
+          </div>
+
+          <!-- Honeypot anti-spam: real users won't see/fill this -->
+          <div class="hp-field" aria-hidden="true">
+            <label>Website (leave empty)</label>
+            <input name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============== LINKS ============== -->
+  <section id="links" class="section">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-eyebrow"><span class="line"></span><span data-i18n="links.eyebrow">Connect</span></div>
+        <h2 class="section-title" data-i18n="links.title">Find her elsewhere.</h2>
+        <p class="section-lead" data-i18n="links.lead">
+          For different audiences and different conversations. Choose your platform — or send a private inquiry through the form above.
+        </p>
+      </div>
+
+      <div class="links-grid">
+        <a href="https://t.me/hey_im_katerina" target="_blank" rel="noopener" class="link-card">
+          <div class="link-card__body">
+            <div class="link-card__platform">Telegram</div>
+            <div class="link-card__handle">@hey_im_katerina</div>
+            <div class="link-card__desc" data-i18n="links.telegramDesc">Daily updates & short notes</div>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+        <a href="https://www.instagram.com/hey_im_katerina" target="_blank" rel="noopener" class="link-card">
+          <div class="link-card__body">
+            <div class="link-card__platform">Instagram</div>
+            <div class="link-card__handle">@hey_im_katerina</div>
+            <div class="link-card__desc" data-i18n="links.instagramDesc">Public portfolio feed</div>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+        <a href="https://www.patreon.com/kkaterina_kos" target="_blank" rel="noopener" class="link-card">
+          <div class="link-card__body">
+            <div class="link-card__platform">Patreon</div>
+            <div class="link-card__handle">kkaterina_kos</div>
+            <div class="link-card__desc" data-i18n="links.patreonDesc">Exclusive 18+ creative work</div>
+          </div>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="footer-col">
+      <div class="footer-brand">YEKATERINA</div>
+      <p class="footer-meta" data-i18n="footer.brand">
+        Model · Editorials · Lingerie · Art-nude<br />
+        Ust-Kamenogorsk, Kazakhstan
+      </p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title" data-i18n="footer.navigate">Navigate</div>
+      <div class="footer-links">
+        <button data-nav="about" class="footer-link" data-i18n="nav.about">About</button>
+        <button data-nav="portfolio" class="footer-link" data-i18n="nav.portfolio">Portfolio</button>
+        <button data-nav="tiers" class="footer-link" data-i18n="nav.tiers">Membership</button>
+        <button data-nav="booking" class="footer-link" data-i18n="nav.booking">Collaborate</button>
+        <button data-nav="links" class="footer-link" data-i18n="nav.links">Connect</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-title" data-i18n="footer.connect">Connect</div>
+      <div class="footer-links">
+        <a href="https://t.me/hey_im_katerina" target="_blank" rel="noopener" class="footer-link">Telegram ↗</a>
+        <a href="https://www.instagram.com/hey_im_katerina" target="_blank" rel="noopener" class="footer-link">Instagram ↗</a>
+        <a href="https://www.patreon.com/kkaterina_kos" target="_blank" rel="noopener" class="footer-link">Patreon ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="container site-footer__bottom">
+    <div>© <span id="year">2026</span> YEKATERINA. <span data-i18n="footer.rights">All rights reserved.</span></div>
+    <div class="footer-verified">🔒 <span data-i18n="footer.verified">18+ verified · Private portfolio</span></div>
+  </div>
+</footer>
+
+<!-- ============== TOAST ============== -->
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
