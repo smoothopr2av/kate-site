@@ -300,6 +300,250 @@
     });
   });
 
+  // ---------- PORTFOLIO GALLERY (rising masonry, rAF-driven) ----------
+  (function initGallery() {
+    const stage = document.getElementById('galleryStage');
+    if (!stage) return;
+
+    // ---------- USER: list your gallery photos here ----------
+    // Drop your files into assets/gallery/ and list them below.
+    // 20–30 photos is the sweet spot. webp or jpg both work.
+    const GALLERY_IMAGES = [
+      'assets/gallery/photo-01.webp',
+      'assets/gallery/photo-02.webp',
+      'assets/gallery/photo-03.webp',
+      'assets/gallery/photo-04.webp',
+      'assets/gallery/photo-05.webp',
+      'assets/gallery/photo-06.webp',
+      'assets/gallery/photo-07.webp',
+      'assets/gallery/photo-08.webp',
+      'assets/gallery/photo-09.webp',
+      'assets/gallery/photo-10.webp',
+      'assets/gallery/photo-11.webp',
+      'assets/gallery/photo-12.webp',
+      'assets/gallery/photo-13.webp',
+      'assets/gallery/photo-14.webp',
+      'assets/gallery/photo-15.webp',
+      'assets/gallery/photo-16.webp',
+      'assets/gallery/photo-17.webp',
+      'assets/gallery/photo-18.webp',
+      'assets/gallery/photo-19.webp',
+      'assets/gallery/photo-20.webp',
+      'assets/gallery/photo-21.webp',
+    ];
+
+    const SIZE_CLASSES = ['gallery-card--sm', 'gallery-card--md', 'gallery-card--lg'];
+    const SIZE_HEIGHTS = { 'gallery-card--sm': 200, 'gallery-card--md': 275, 'gallery-card--lg': 350 };
+
+    const mqMobile = window.matchMedia('(max-width: 767px)');
+    let isMobile = mqMobile.matches;
+
+    // Read stage dims once, recompute on resize (debounced)
+    function getStageDims() {
+      return {
+        w: stage.clientWidth,
+        h: stage.clientHeight
+      };
+    }
+    let stageDims = getStageDims();
+
+    // Stable shuffle (deterministic per load, so layout doesn't jump)
+    function seededShuffle(arr, seed) {
+      const a = arr.slice();
+      let s = seed;
+      for (let i = a.length - 1; i > 0; i--) {
+        s = (s * 9301 + 49297) % 233280;
+        const j = Math.floor((s / 233280) * (i + 1));
+        const t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    // Build card data
+    const cardsData = GALLERY_IMAGES.map(function (src, i) {
+      return {
+        src: src,
+        sizeClass: SIZE_CLASSES[i % SIZE_CLASSES.length],
+        index: i
+      };
+    });
+    const shuffled = seededShuffle(cardsData, 42);
+
+    // Create DOM elements
+    const cardEls = shuffled.map(function (card, i) {
+      const el = document.createElement('div');
+      el.className = 'gallery-card ' + card.sizeClass;
+      const img = document.createElement('img');
+      img.src = card.src;
+      img.alt = 'Gallery photo ' + (card.index + 1);
+      img.loading = 'lazy';
+      el.appendChild(img);
+      stage.appendChild(el);
+      return el;
+    });
+
+    // ---------- DESKTOP: vertical rising via rAF ----------
+    // Each card has: column (0..3), x-jitter, rotation, duration, phase offset.
+    // Position is computed each frame as: y = lerp(startY, endY, progress)
+    // Opacity fades at the very start (0–8%) and end (92–100%) of cycle.
+
+    const COLS_DESKTOP = 4;
+
+    const desktopCards = shuffled.map(function (card, i) {
+      const col = i % COLS_DESKTOP;
+      const colWidth = stageDims.w / COLS_DESKTOP;
+      const baseX = col * colWidth + (colWidth / 2) - 100;
+      // Use deterministic pseudo-random for stable layout
+      const jitter = Math.sin(i * 7.3) * 30 - 15; // ±15–30 px
+      const rotation = Math.sin(i * 3.7) * 2.5; // ±2.5deg
+      const duration = 22000 + (i % 6) * 2000; // 22–32 sec per rise
+      const phase = (i * 0.27) % 1; // staggered phase 0..1 — each card starts mid-cycle
+      return {
+        el: cardEls[i],
+        x: baseX + jitter,
+        rotation: rotation,
+        duration: duration,
+        phase: phase,
+        startY: stageDims.h + 50, // below stage
+        endY: -SIZE_HEIGHTS[card.sizeClass] - 50 // above stage
+      };
+    });
+
+    // ---------- MOBILE: 2-column vertical rising (no overlap) ----------
+    // On mobile, use 8 cards total (4 per column).
+    // With 4 cards per column and 28s cycle → 7s gap between cards.
+    // Card height ~150-212px + 30px gap = max ~242px.
+    // In 7s, a card travels ~242px (242/7 ≈ 35px/s).
+    // Stage height 380px / 35px per sec = ~11s for full traversal.
+    // 11s traversal < 7s gap → cards NEVER overlap.
+    const MOBILE_MAX_CARDS = 8;
+    const MOBILE_DURATION = 28000; // 28s per cycle
+    const mobileSource = shuffled.slice(0, MOBILE_MAX_CARDS);
+    const mobileCards = mobileSource.map(function (card, i) {
+      return {
+        el: cardEls[i],
+        sizeClass: card.sizeClass,
+        duration: MOBILE_DURATION,
+        phase: 0,
+        col: 0,
+        cardIndexInCol: 0
+      };
+    });
+
+    const MOBILE_COLS = 2;
+    function applyMobileLayout() {
+      const stageW = stage.clientWidth;
+      const colCounts = [0, 0];
+      mobileCards.forEach(function (c, i) {
+        c.col = i % MOBILE_COLS;
+        c.cardIndexInCol = colCounts[c.col]++;
+      });
+      const perCol = [colCounts[0], colCounts[1]];
+      mobileCards.forEach(function (c, i) {
+        const w = c.el.offsetWidth;
+        const colW = stageW / MOBILE_COLS;
+        const baseX = c.col * colW + (colW - w) / 2;
+        const jitter = Math.sin(i * 5.7) * 4;
+        c.x = baseX + jitter;
+        // Evenly distribute phases within each column
+        // 4 cards per col → phases 0, 0.25, 0.5, 0.75
+        c.phase = (c.cardIndexInCol / perCol[c.col]) % 1;
+      });
+    }
+
+    // rAF loop
+    let rafId = null;
+    let lastTime = 0;
+    let isVisible = true;
+
+    function tick(now) {
+      if (!isVisible) {
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
+      if (!lastTime) lastTime = now;
+      const dt = now - lastTime;
+      lastTime = now;
+
+      if (isMobile) {
+        // Mobile: 2-column vertical rising (no overlap)
+        // Only first 12 cards are used on mobile; rest are hidden.
+        const stageH = stageDims.h;
+        mobileCards.forEach(function (c) {
+          const t = ((now / c.duration) + c.phase) % 1;
+          const cardH = c.el.offsetHeight;
+          const startY = stageH + cardH + 20;
+          const endY = -cardH - 20;
+          const y = startY + (endY - startY) * t;
+          let opacity = 1;
+          if (t < 0.08) opacity = t / 0.08;
+          else if (t > 0.92) opacity = (1 - t) / 0.08;
+          c.el.style.transform = 'translate3d(' + c.x + 'px, ' + y + 'px, 0)';
+          c.el.style.opacity = opacity;
+          c.el.style.display = '';
+        });
+        // Hide cards beyond mobile set
+        for (let i = mobileCards.length; i < cardEls.length; i++) {
+          cardEls[i].style.display = 'none';
+        }
+      } else {
+        // Desktop: make sure all cards are visible
+        cardEls.forEach(function (el) { el.style.display = ''; });
+        // Vertical rising
+        desktopCards.forEach(function (c) {
+          const t = ((now / c.duration) + c.phase) % 1;
+          const y = c.startY + (c.endY - c.startY) * t;
+          // Opacity: fade in/out at edges
+          let opacity = 1;
+          if (t < 0.08) opacity = t / 0.08;
+          else if (t > 0.92) opacity = (1 - t) / 0.08;
+          // Use translate3d only — pure GPU transform, no rotate (avoid compositor conflicts)
+          // Rotation is applied via a child wrapper if needed; for now keep it pure translate
+          c.el.style.transform = 'translate3d(' + c.x + 'px, ' + y + 'px, 0)';
+          c.el.style.opacity = opacity;
+        });
+      }
+
+      rafId = requestAnimationFrame(tick);
+    }
+
+    // Pause when tab is hidden (saves battery + avoids frame jumps)
+    document.addEventListener('visibilitychange', function () {
+      isVisible = !document.hidden;
+      if (isVisible) lastTime = 0; // reset to avoid dt jump
+    });
+
+    // ---------- Resize handler: recompute layout on viewport change ----------
+    let resizeTimer = null;
+    function onResize() {
+      const newIsMobile = mqMobile.matches;
+      if (newIsMobile !== isMobile) {
+        isMobile = newIsMobile;
+      }
+      stageDims = getStageDims();
+      // Recompute desktop card positions
+      desktopCards.forEach(function (c, i) {
+        const col = i % COLS_DESKTOP;
+        const colWidth = stageDims.w / COLS_DESKTOP;
+        const baseX = col * colWidth + (colWidth / 2) - 100;
+        const jitter = Math.sin(i * 7.3) * 30 - 15;
+        c.x = baseX + jitter;
+        c.startY = stageDims.h + 50;
+      });
+      if (isMobile) applyMobileLayout();
+    }
+    window.addEventListener('resize', function () {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(onResize, 150);
+    });
+
+    // Initial mobile layout if needed
+    if (isMobile) applyMobileLayout();
+
+    // Start animation loop
+    rafId = requestAnimationFrame(tick);
+  })();
+
   // ---------- INIT ----------
   applyLang(initialLang);
 

@@ -26,7 +26,6 @@ window.I18N = {
     'hero.startCollab': 'Start a Collaboration',
 
     'stats.audience': 'Instagram audience',
-    'stats.publications': 'Publications',
     'stats.tiers': 'Active membership tiers',
     'stats.platforms': "Platforms she's on",
 
@@ -54,15 +53,7 @@ window.I18N = {
     'portfolio.eyebrow': 'Selected Work',
     'portfolio.title': 'Portfolio',
     'portfolio.sub': 'A curated selection of public frames. Full editorial sets and uncensored work are available to members.',
-    'portfolio.cat1': 'Editorial',
-    'portfolio.title1': 'Editorial',
-    'portfolio.sub1': 'Soft natural light study',
-    'portfolio.cat2': 'Portrait',
-    'portfolio.title2': 'Portrait',
-    'portfolio.sub2': 'Studio session, Ust-Kamenogorsk',
-    'portfolio.cat3': 'Mood',
-    'portfolio.title3': 'Atmosphere',
-    'portfolio.sub3': 'Mood & aesthetic frame',
+
     'portfolio.archive': 'See full archive on Patreon',
 
     'tiers.eyebrow': 'Membership',
@@ -184,9 +175,8 @@ window.I18N = {
     'hero.startCollab': 'Начать сотрудничество',
 
     'stats.audience': 'Аудитория в Instagram',
-    'stats.publications': 'Публикаций',
     'stats.tiers': 'Активных уровней подписки',
-    'stats.platforms': 'Площадок',
+    'stats.platforms': 'Площадки',
 
     'about.eyebrow': 'О модели',
     'about.title': 'Модель, для которой каждый кадр — это разговор.',
@@ -212,15 +202,7 @@ window.I18N = {
     'portfolio.eyebrow': 'Избранные работы',
     'portfolio.title': 'Портфолио',
     'portfolio.sub': 'Подборка публичных кадров. Полные editorial-сеты и uncensored-работы доступны по подписке.',
-    'portfolio.cat1': 'Editorial',
-    'portfolio.title1': 'Editorial',
-    'portfolio.sub1': 'Исследование мягкого естественного света',
-    'portfolio.cat2': 'Портрет',
-    'portfolio.title2': 'Портрет',
-    'portfolio.sub2': 'Студийная съёмка, Усть-Каменогорск',
-    'portfolio.cat3': 'Mood',
-    'portfolio.title3': 'Атмосфера',
-    'portfolio.sub3': 'Кадр настроения и эстетики',
+
     'portfolio.archive': 'Полный архив на Patreon',
 
     'tiers.eyebrow': 'Подписка',
